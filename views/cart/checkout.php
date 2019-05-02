@@ -38,7 +38,7 @@
                                 </ul>
                             <?php endif;?>
                             <form action="#" method="post">
-                                <input type="text" name="name" placeholder="Имя" value="<?php echo $username;?>"/>
+                                <input type="text" name="name" placeholder="Имя" value="<?php if (isset($_POST['name'])) echo $_POST['name']; else echo $username;?>"/>
                                 <input type="text" name="phone" placeholder="Телефон" value="<?php if (isset($_POST['phone'])) echo $_POST['phone'];?>"/>
                                 <input type="text" name="comment" placeholder="Коментарий" value="<?php if (isset($_POST['comment'])) echo $_POST['comment'];?>"/>
                                 <input type="submit" name="submitOrder" value="Оформить" class="btn btn-default"/>
