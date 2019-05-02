@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fa435a4-2fb8-4933-9031-4a86516723af" name="Default Changelist" comment="" />
+    <list default="true" id="0fa435a4-2fb8-4933-9031-4a86516723af" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/components/Db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop.sql" beforeDir="false" afterPath="$PROJECT_DIR$/shop.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/34.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/34.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/36.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/36.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/37.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/37.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/38.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/38.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/39.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/39.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/40.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/40.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/41.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/41.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/42.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/42.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/43.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/43.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/44.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/44.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/45.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/45.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/46.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/46.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/47.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/47.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/54.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/54.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload/images/products/no-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/upload/images/products/no-image.jpg" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,78 +49,12 @@
     <favorites_list name="shop.com" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/catalog/view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/catalog/category.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/cart/checkout.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="752" column="18" selection-start-line="752" selection-start-column="18" selection-end-line="752" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/images/home/logo.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/template/js/main.js">
+        <entry file="file://$PROJECT_DIR$/components/Db.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/js/bootstrap.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/js/html5shiv.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="228">
+              <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -117,6 +71,9 @@
       <find>product</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -127,7 +84,6 @@
         <option value="$PROJECT_DIR$/views/layouts/fooder.php" />
         <option value="$PROJECT_DIR$/config/db_params.php" />
         <option value="$PROJECT_DIR$/views/catalog/index.php" />
-        <option value="$PROJECT_DIR$/components/Db.php" />
         <option value="$PROJECT_DIR$/components/Router.php" />
         <option value="$PROJECT_DIR$/components/Pagination.php" />
         <option value="$PROJECT_DIR$/views/user/view.php" />
@@ -135,7 +91,6 @@
         <option value="$PROJECT_DIR$/views/user/login.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/views/layouts/footer.php" />
-        <option value="$PROJECT_DIR$/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/controllers/CabinetController.php" />
         <option value="$PROJECT_DIR$/views/cabinet/view.php" />
@@ -171,6 +126,8 @@
         <option value="$PROJECT_DIR$/views/product/view.php" />
         <option value="$PROJECT_DIR$/views/site/index.php" />
         <option value="$PROJECT_DIR$/template/css/main.css" />
+        <option value="$PROJECT_DIR$/controllers/SiteController.php" />
+        <option value="$PROJECT_DIR$/components/Db.php" />
       </list>
     </option>
   </component>
@@ -193,6 +150,7 @@
     <option name="width" value="881" />
     <option name="height" value="789" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -208,114 +166,17 @@
             <path>
               <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="fonts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="cabinet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="cart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="catalog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop.com" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,12 +336,14 @@
       <workItem from="1556346555133" duration="11132000" />
       <workItem from="1556527372433" duration="41453000" />
       <workItem from="1556665146539" duration="987000" />
-      <workItem from="1556699432915" duration="28617000" />
+      <workItem from="1556699432915" duration="29565000" />
+      <workItem from="1556750622876" duration="595000" />
+      <workItem from="1556754678647" duration="494000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186639000" />
+    <option name="totallyTimeSpent" value="188676000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -493,8 +356,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989059" visible="true" weight="0.15218595" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989059" visible="true" weight="0.15550636" />
       <window_info id="Structure" order="1" sideWeight="0.5010941" side_tool="true" weight="0.08743774" />
       <window_info id="Favorites" order="2" sideWeight="0.5010941" side_tool="true" weight="0.08743774" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -519,48 +383,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/components/Router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Cabinet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/CatalogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="57" column="34" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/cabinet/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="50" lean-forward="true" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/CabinetController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -614,20 +436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="52" column="90" selection-start-line="52" selection-start-column="90" selection-end-line="52" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/AdminCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="68" column="46" lean-forward="true" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -757,39 +565,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/cart/one.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/home/bg_border.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/home/gallery1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/home/iframe1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/home/iframe2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/product-details/1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/product-details/new.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/product-details/rating.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/product-details/share.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/product-details/similar1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/images/shop/advertisement.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/template/images/cart/one.png" />
+    <entry file="file://$PROJECT_DIR$/template/images/home/bg_border.png" />
+    <entry file="file://$PROJECT_DIR$/template/images/home/gallery1.jpg" />
+    <entry file="file://$PROJECT_DIR$/template/images/home/iframe1.png" />
+    <entry file="file://$PROJECT_DIR$/template/images/home/iframe2.png" />
+    <entry file="file://$PROJECT_DIR$/template/images/product-details/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/template/images/product-details/new.jpg" />
+    <entry file="file://$PROJECT_DIR$/template/images/product-details/rating.png" />
+    <entry file="file://$PROJECT_DIR$/template/images/product-details/share.png" />
+    <entry file="file://$PROJECT_DIR$/template/images/product-details/similar1.jpg" />
+    <entry file="file://$PROJECT_DIR$/template/images/shop/advertisement.jpg" />
     <entry file="file://$PROJECT_DIR$/template/images/home/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -802,12 +588,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/js/contact.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/js/gmaps.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/template/js/contact.js" />
+    <entry file="file://$PROJECT_DIR$/template/js/gmaps.js" />
     <entry file="file://$PROJECT_DIR$/template/js/html5shiv.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -824,6 +606,52 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Pagination.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/db_params.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2003" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/SiteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/AdminCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="68" column="46" lean-forward="true" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
         </state>
       </provider>
     </entry>
