@@ -36,7 +36,7 @@ return array(
 
 
 
-    '' => 'site/index',
+    '^(.*)$' => 'site/index',
 
 
 );
