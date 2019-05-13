@@ -23,9 +23,11 @@
             <div class="col-sm-9 padding-right">
                 <h2 class="title text-center">Личный кабинет</h2>
                 <a href="/cabinet/edit" name="edit">Редактировать личные данные</a><br/>
-                <a href="#" name="history">История заказов</a>
+                <a href="#" name="history">История заказов</a><br/>
+                <?php if ((isset($_SESSION['role'])) && ($_SESSION['role'] == 'admin')):?>
+                <a href="/admin" name="edit">Панель администратора</a><br/>
+                <?php endif;?>
             </div>
         </div>
-
 </section>
 <?php include ROOT.'/views/layouts/footer.php'; ?>

@@ -5,22 +5,15 @@
         <div class="row">
             <h4>Добавить новую категорию</h4>
             <br/>
-            <?php if (isset($errors) && is_array($errors)): ?>
-                <ul>
-                    <?php foreach ($errors as $error): ?>
-                        <li> - <?php echo $error; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php endif; ?>
             <div class="col-lg-4">
                 <div class="login-form">
                     <form action="#" method="post">
 
                         <p>Название</p>
-                        <input type="text" name="name" placeholder="" value="">
+                        <input type="text" name="name" placeholder="" value="" required>
 
                         <p>Порядковый номер</p>
-                        <input type="text" name="sort_order" placeholder="" value="">
+                        <input type="text" name="sort_order" placeholder="" value="" required>
 
                         <p>Статус</p>
                         <select name="status">

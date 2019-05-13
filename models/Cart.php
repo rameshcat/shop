@@ -57,7 +57,9 @@ class Cart
         }
         if ($productsInCart[$id]>1){
             $productsInCart[$id]--;
-        } else unset($productsInCart[$id]);
+        } else {
+            unset($productsInCart[$id]);
+        }
 
         $_SESSION['products'] = $productsInCart;
     }

@@ -17,9 +17,9 @@
                     <?php endif;?>
                     <h2>Регистрация</h2>
                     <form action="#" method="post">
-                        <input type="text" name="name" placeholder="Имя" value="<?php echo $name;?>"/>
-                        <input type="email" name="email" placeholder="Email" value="<?php echo $email;?>"/>
-                        <input type="password" name="password" placeholder="Пароль" value="<?php echo $password;?>"/>
+                        <input type="text" name="name" placeholder="Имя" minlength="1" value="<?php echo $name;?>" required/>
+                        <input type="email" name="email" placeholder="Email" value="<?php echo $email;?>" required/>
+                        <input type="password" name="password" placeholder="Пароль" minlength="8" value="<?php echo $password;?>" required/>
                         <input type="submit" name="submit" value="Регистрация" class="btn btn-default"/>
                     </form>
                 </div><!--/sign up form-->

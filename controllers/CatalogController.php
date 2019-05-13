@@ -5,6 +5,7 @@ include_once ROOT.'/models/Product.php';
 include_once ROOT.'/components/Pagination.php';
 include_once ROOT.'/models/User.php';
 include_once ROOT.'/models/Cart.php';
+include_once ROOT.'/models/Helper.php';
 
 
 class CatalogController

@@ -19,17 +19,6 @@ class UserController
 
             $errors = false;
 
-            if (!User::checkName($name)){
-                $errors[]='Заполните поле Имя';
-            }
-            if (!User::checkEmail($email)){
-
-                $errors[]='E-mail неверный';
-            }
-            if (!User::checkPassword($password)){
-
-                $errors[]='Пароль не должен быть менее 8 символов';
-            }
             if (!User::checkEmailExist($email)){
 
                 $errors[]='Такой E-mail уже используется';
@@ -55,23 +44,13 @@ class UserController
 
             $errors = false;
 
+            $user = User::checkUserData($email,$password);
 
-            if (!User::checkEmail($email)){
-
-                $errors[]='E-mail неверный';
-            }
-            if (!User::checkPassword($password)){
-
-                $errors[]='Пароль не должен быть менее 8 символов';
-            }
-
-            $userId = User::checkUserData($email,$password);
-
-            if ($userId == false){
+            if ($user == false){
 
                 $errors[]='Неверные данные';
             } else {
-                User::login($userId);
+                User::login($user['userId'],$user['role']);
                 header("Location: /cabinet/");
             }
 

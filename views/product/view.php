@@ -11,7 +11,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="/category/<?php echo $categoryItem['id'];?>">
+                                        <a href="<?php echo Helper::uriLink('category',$categoryItem['id']);?>">
                                             <?php echo $categoryItem['name']; ?>
                                         </a>
                                     </h4>
@@ -34,17 +34,18 @@
                         <div class="col-sm-7">
                             <div class="product-information"><!--/product-information-->
                                 <?php if ($product['is_new']==1):?>
-                                <img src="/template/images/product-details/new.jpg" class="newarrival" alt="" />
+                                <img src="<?php echo Helper::imageLink('new');?>" class="newarrival" alt="" />
                                 <?php endif;?>
                                 <h2><?php echo $product['name'];?></h2>
                                 <p>Код товара: <?php echo $product['code'];?></p>
                                         <span>
                                             <span>US $ <?php echo $product['price'];?></span>
-
-                                            <a href="/cart/add/<?php echo $product['id'];?>"><button  type="button" class="btn btn-fefault cart">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                В корзину
-                                            </button></a>
+                                            <a href="<?php echo Helper::uriLink('cartAdd',$product['id']);?>">
+                                                <button  type="button" class="btn btn-fefault cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                    В корзину
+                                                </button>
+                                            </a>
                                         </span>
                                 <p><b>Наличие:</b>
                                     <?php if ($product['availability']==1) {

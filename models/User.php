@@ -6,6 +6,8 @@ class User
     {
         $db = Db::getConnection();
 
+        $password = password_hash($password, PASSWORD_BCRYPT);
+
         $sql = 'INSERT INTO user (name, email, password) VALUES (:name, :email, :password)';
 
         $result = $db->prepare($sql);
@@ -68,27 +70,23 @@ class User
 
         $db = Db::getConnection();
 
-        $sql = 'SELECT * FROM user WHERE email = :email AND password = :password';
+        $sql = 'SELECT * FROM user WHERE email = :email';
 
         $result = $db->prepare($sql);
-
         $result->bindParam(':email',$email);
-        $result->bindParam(':password',$password);
         $result->execute();
-
-
         $user=$result->fetch();
 
-        if ($user){
-            return $user['id'];
+        if (password_verify($password,$user['password'])){
+            return array('userId'=>$user['id'], 'role'=>$user['role']);
         }
         return false;
-
     }
-    public static function login($userId)
+    public static function login($userId,$role)
     {
 
         $_SESSION['user'] = $userId;
+        $_SESSION['role'] = $role;
 
     }
     public static function checkLoged()
@@ -138,6 +136,7 @@ class User
     public static function edit($userId, $name, $password)
     {
         $db = Db::getConnection();
+        $password = password_hash($password, PASSWORD_BCRYPT);
 
         $sql = 'UPDATE user SET password = :password, name = :name WHERE id = :id;';
 

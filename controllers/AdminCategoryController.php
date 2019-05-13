@@ -1,6 +1,8 @@
 <?php
 include_once ROOT.'/models/User.php';
 include_once ROOT.'/models/Category.php';
+include_once ROOT.'/models/Helper.php';
+
 class AdminCategoryController
 {
 
@@ -26,9 +28,6 @@ class AdminCategoryController
 
             $errors = false;
 
-            if (!isset($name) || empty($name)) {
-                $errors[] = 'Заполните поля';
-            }
             if ($errors == false) {
 
                 Category::createCategory($name, $sortOrder, $status);

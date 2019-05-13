@@ -17,8 +17,8 @@
                             <?php endif;?>
                             <h2>Редактирование личных данных</h2>
                             <form action="#" method="post">
-                                <input type="text" name="name" placeholder="Имя" value="<?php echo $name;?>"/>
-                                <input type="password" name="password" placeholder="Пароль" value="<?php echo $password;?>"/>
+                                <input type="text" name="name" placeholder="Имя" minlength="1" value="<?php echo $name;?>"/>
+                                <input type="password" name="password" placeholder="Пароль" minlength="8"/>
                                 <input type="submit" name="submit" value="Сохранить" class="btn btn-default"/>
                             </form>
                         </div><!--/sign up form-->

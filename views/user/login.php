@@ -14,8 +14,8 @@
                         <?php endif;?>
                         <h2>Авторизация</h2>
                         <form action="#" method="post">
-                            <input type="email" name="email" placeholder="Email" value="<?php echo $email;?>"/>
-                            <input type="password" name="password" placeholder="Пароль" value="<?php echo $password;?>"/>
+                            <input type="email" name="email" placeholder="Email" value="<?php echo $email;?>" required/>
+                            <input type="password" name="password" placeholder="Пароль" value="<?php echo $password;?>" required/>
                             <input type="submit" name="submit" value="Войти" class="btn btn-default"/>
                         </form>
                     </div><!--/sign up form-->

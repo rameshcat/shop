@@ -46,7 +46,7 @@
                         <td><?php echo Cart::getTotalPrice($products);?></td>
                     </tr>
                 </table>
-                <form action="checkout/" method="post">
+                <form action="checkout" method="post">
                     <input type="submit" name="submit" value="Оформить заказ" class="btn btn-default">
                 </form>
                 <?php endif;?>
