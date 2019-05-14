@@ -29,6 +29,7 @@
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Последние товары</h2>
+                    <?php echo $categoryProducts[0]['category_description'];?>
                     <?php foreach ($categoryProducts as $product):?>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">

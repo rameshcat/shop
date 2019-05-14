@@ -43,8 +43,7 @@ class Product
 
             $products = array();
 
-            $result = $db->query("SELECT id, name, price, is_new FROM product WHERE status = '1' AND category_id ='$categoryId' ORDER BY id DESC LIMIT ".self::SHOW_BY_DEFAULT." OFFSET $offset");
-
+            $result = $db->query("SELECT product.id as id, product.name as name, price, is_new, category.name as categoryname, category_description, category_image FROM product INNER JOIN category ON product.category_id = category.id WHERE product.status = '1' AND category_id = '$categoryId' ORDER BY id DESC LIMIT ".self::SHOW_BY_DEFAULT." OFFSET $offset");
 
             $i = 0;
             while ($row = $result->fetch()) {
@@ -52,6 +51,9 @@ class Product
                 $products[$i]['name'] = $row['name'];
                 $products[$i]['price'] = $row['price'];
                 $products[$i]['is_new'] = $row['is_new'];
+                $products[$i]['category_description'] = $row['category_description'];
+                $products[$i]['category_image'] = $row['category_image'];
+
                 $i++;
             };
             return $products;
