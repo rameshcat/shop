@@ -5,6 +5,13 @@
         <div class="row">
             <h4>Добавить новую категорию</h4>
             <br/>
+            <?php if (isset($errors) && is_array($errors)): ?>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li> - <?php echo $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
             <div class="col-lg-4">
                 <div class="login-form">
                     <form action="#" method="post">

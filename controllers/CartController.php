@@ -69,6 +69,12 @@ class CartController
             $comment = $_POST['comment'];
 
             $errors = false;
+            if (!User::checkName($name)){
+                $errors[]='Заполните поле Имя';
+            }
+            if (!User::checkPhone($phone)){
+                $errors[]='Телефон не должен быть менее 10 символов';
+            }
 
 
             if ($errors == false){

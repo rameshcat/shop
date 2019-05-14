@@ -28,6 +28,10 @@ class AdminCategoryController
 
             $errors = false;
 
+            if (!isset($name) || empty($name)) {
+                $errors[] = 'Заполните поля';
+            }
+
             if ($errors == false) {
 
                 Category::createCategory($name, $sortOrder, $status);

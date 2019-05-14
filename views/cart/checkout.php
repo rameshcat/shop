@@ -30,6 +30,13 @@
                         <div class="signup-form"><!--sign up form-->
                             <div>Выбрано товаров: <?php echo Cart::countItems();?></div>
                             <div>На сумму: <?php echo Cart::getTotalPrice($products);?></div>
+                            <?php if (isset($errors) && is_array($errors)):?>
+                                <ul>
+                                    <?php foreach ($errors as $error):?>
+                                        <li><?php echo $error?></li>
+                                    <?php endforeach;?>
+                                </ul>
+                            <?php endif;?>
                             <form action="#" method="post">
                                 <input type="text" name="name" placeholder="Имя" minlength="1" value="<?php if (isset($_POST['name'])) echo $_POST['name']; else echo $username;?>" required/>
                                 <input type="tel" name="phone" placeholder="Телефон" minlength="8" maxlength="20" value="<?php if (isset($_POST['phone'])) echo $_POST['phone'];?>" required pattern="[0-9]+"/>
