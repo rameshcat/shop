@@ -22,10 +22,10 @@
             </div>
             <div class="col-sm-9 padding-right">
                 <h2 class="title text-center">Личный кабинет</h2>
-                <a href="/cabinet/edit" name="edit">Редактировать личные данные</a><br/>
+                <a href="<?php echo Helper::uriLink('userDataEdit');?>" name="edit">Редактировать личные данные</a><br/>
                 <a href="#" name="history">История заказов</a><br/>
                 <?php if ((isset($_SESSION['role'])) && ($_SESSION['role'] == 'admin')):?>
-                <a href="/admin" name="edit">Панель администратора</a><br/>
+                <a href="<?php echo Helper::uriLink('adminPanel');?>" name="edit">Панель администратора</a><br/>
                 <?php endif;?>
             </div>
         </div>

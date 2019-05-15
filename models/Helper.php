@@ -37,6 +37,12 @@ class Helper
             case 'adminProduct':
                 return "/admin/product";
                 break;
+            case 'userDataEdit':
+                return "/cabinet/edit";
+                break;
+            case 'adminPanel':
+                return "/admin";
+                break;
         }
     }
     public static function imageLink($name)
