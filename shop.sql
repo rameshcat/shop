@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.26, for Linux (x86_64)
 --
 -- Host: localhost    Database: phpshop
 -- ------------------------------------------------------
--- Server version	5.7.25-0ubuntu0.18.04.2
+-- Server version	5.7.26-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,8 +27,10 @@ CREATE TABLE `category` (
   `name` varchar(255) NOT NULL,
   `sort_order` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '1',
+  `category_description` text NOT NULL,
+  `category_image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +39,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Шины',1,1),(2,'Диски',2,1),(3,'Аккумуляторы',3,1),(4,'Масла',4,1);
+INSERT INTO `category` VALUES (1,'Шины',1,1,'Колеса важный элемент любого автомобиля, а шины, в свою очередь, делают езду на дороге безопасной и комфортной. Поскольку на колеса приходится основная нагрузка, то экономить на резине не стоит, поскольку покупка некачественных изделий приведет к аварийным ситуациям на дороге и сложности управления транспортным средством. По сути, автомобильные шины это резиновая оболочка колеса, которая ставится на обод. Состоит из таких частей: каркаса, протекторного рисунка, защитного слоя, борта и бокового элемента. Шины делят на летние, зимние и всесезонные от правильного выбора напрямую зависит безопасность на дороге и легкость управления транспортом','/template/images/home/categoryTyres.png'),(2,'Диски',2,1,'Диски на авто являются незаменимым атрибутом любого транспортного средства. Но когда речь заходит о солидности, статусе и безопасности, то важнейшим моментом является качество и состояние автодисков','/template/images/home/categoryDiscs.png'),(3,'Аккумуляторы',3,1,'Большой ассортимент аккумуляторов для авто и мототехники – все это предлагает вашему вниманию наш интернет-магазин. Здесь представлены АКБ известных брендов с проверенной репутацией, которые не один десяток лет поставляют на рынок качественные и надежные источники питания. Многие из представленных в нашем каталоге аккумуляторов изначально устанавливаются на новенькие авто некоторых производителей и идут в базовой комплектации машин. ','/template/images/home/categoryBataryes.png'),(4,'Масла',4,1,'У каждого владельца авто рано или поздно возникает необходимость замены масла в двигателе.  Для двигателя смазочный материал играет ключевую роль: при правильном выборе и своевременной замене срок службы всех узлов увеличивается в разы. В документации к транспортному средству указывается рекомендуемая марка моторного масла: пока машина на гарантии, нужно использовать именно ее. Цена рекомендуемого средства при этом может быть достаточно высокой.','/template/images/home/categoryOils.png');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +62,9 @@ CREATE TABLE `product` (
   `is_new` int(11) NOT NULL DEFAULT '0',
   `is_recommended` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -91,7 +95,7 @@ CREATE TABLE `product_order` (
   `products` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +104,7 @@ CREATE TABLE `product_order` (
 
 LOCK TABLES `product_order` WRITE;
 /*!40000 ALTER TABLE `product_order` DISABLE KEYS */;
-INSERT INTO `product_order` VALUES (58,'Natalia Kotelevska','+1 88622365550','asdasdasd','17','2019-05-01 19:18:16','{\"47\":1}',1),(57,'qwe','491787152216','asdfasdf','0','2019-05-01 15:17:09','{\"47\":4}',1),(56,'Natalia Kotelevska','+1 88622365550','','17','2019-05-01 10:57:22','{\"40\":2}',1),(55,'asdasd','+1 88622365550','','0','2019-04-30 23:33:11','{\"40\":4}',1);
+INSERT INTO `product_order` VALUES (63,'Roma','000-231-00-00','','19','2019-05-13 10:39:45','false',1),(62,'Roma','000-231-00-00','','19','2019-05-13 10:39:45','{\"54\":1}',1),(61,'asdasd','+1 88622365550','','0','2019-05-02 00:23:12','{\"46\":1}',1),(60,'asdasdsadasd','333333333333333333','','0','2019-05-02 00:21:15','{\"46\":2}',1),(59,'asd','+1 88622365550','12341234124','0','2019-05-02 00:15:53','{\"54\":1}',1),(58,'Natalia Kotelevska','+1 88622365550','asdasdasd','17','2019-05-01 19:18:16','{\"47\":1}',1),(57,'qwe','491787152216','asdfasdf','0','2019-05-01 15:17:09','{\"47\":4}',1),(56,'Natalia Kotelevska','+1 88622365550','','17','2019-05-01 10:57:22','{\"40\":2}',1),(55,'asdasd','+1 88622365550','','0','2019-04-30 23:33:11','{\"40\":4}',1),(64,'Roma','111-111-11-11','','19','2019-05-13 10:46:40','{\"54\":1}',1),(65,'Roma','123456789456123d','','19','2019-05-13 11:27:05','{\"47\":4}',1),(66,'Roma','123456789456123d','','19','2019-05-13 11:28:17','false',1),(67,'Jklkmk','111111111','123123','0','2019-05-13 19:10:24','{\"46\":2}',1),(68,'Roma','11111111','','21','2019-05-13 20:12:34','{\"43\":2}',1);
 /*!40000 ALTER TABLE `product_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +122,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `role` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,8 +131,32 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (13,'Roman','roma@mail.ua','11111111',NULL),(15,'Natalia Kotelevska','kotelevskaja.natalja@gmail.co','123123123',NULL),(16,'Kotelevska UA37809','kotelevskaja.natalja@gmail.cohjk','11111111',NULL),(17,'Natalia Kotelevska','kotelevskaja.natalja@gmail.com','123123123','admin'),(18,'Roman','roman@mail.com','123123123',NULL);
+INSERT INTO `user` VALUES (19,'Roma','roma@i.ua','$2y$10$tkz7htQf5lFU1hemrZ/NMer6whFxS7Ab2jMjmLv.ACiJLXCVHIqcu',NULL),(20,'roman','roman@sd.sd','$2y$10$ZJNNf.LhT0TwgEwp9IbsUeD.u1P1NPjRoBXAlGWGhqkC6ugVuu0/G',NULL),(21,'Roma','admin@admin.ua','$2y$10$HNU30HVSr1xokvM9XbU1gOhKNl3sL79Ce2xgouucjsjs9ofHzyU9O','admin');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `version`
+--
+
+DROP TABLE IF EXISTS `version`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `version` (
+  `version` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `version`
+--
+
+LOCK TABLES `version` WRITE;
+/*!40000 ALTER TABLE `version` DISABLE KEYS */;
+INSERT INTO `version` VALUES (1,1);
+/*!40000 ALTER TABLE `version` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -140,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-02  0:44:34
+-- Dump completed on 2019-05-17 18:20:45

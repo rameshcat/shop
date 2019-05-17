@@ -31,7 +31,7 @@ class DbVersion
     public static function dbUpdate()
     {
         $db = Db::getConnection();
-        $db->query('CREATE TABLE newTable ( new INT(10) NOT NULL , PRIMARY KEY (new)) ENGINE = InnoDB');
+        //$db->query('CREATE TABLE newTable ( new INT(10) NOT NULL , PRIMARY KEY (new)) ENGINE = InnoDB');
 
         return true;
 
