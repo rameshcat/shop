@@ -31,6 +31,7 @@ class DbVersion
     public static function dbUpdate()
     {
         $db = Db::getConnection();
+        //ALTER TABLE `product_order` ADD `user_email` VARCHAR(255) NOT NULL ;
         //$db->query('CREATE TABLE newTable ( new INT(10) NOT NULL , PRIMARY KEY (new)) ENGINE = InnoDB');
 
         return true;

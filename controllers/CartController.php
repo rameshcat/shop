@@ -67,6 +67,7 @@ class CartController
             $name = $_POST['name'];
             $phone = $_POST['phone'];
             $comment = $_POST['comment'];
+            $email = $_POST['email'];
 
             $errors = false;
             if (!User::checkName($name)){
@@ -75,11 +76,14 @@ class CartController
             if (!User::checkPhone($phone)){
                 $errors[]='Телефон не должен быть менее 10 символов';
             }
+            if (!User::checkEmail($email)){
+                $errors[]='Неверный e-mail';
+            }
 
 
             if ($errors == false){
 
-                $result = Cart::createOrder($name,$phone,$comment);
+                $result = Cart::createOrder($name,$phone,$comment,$email);
             }
 
         }

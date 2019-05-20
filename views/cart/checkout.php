@@ -26,6 +26,7 @@
                 <div class="col-sm-4">
                     <?php if($result == true):?>
                         <h2>Заказ оформлен!</h2>
+                        <h2>Номер Вашего заказа <?php echo ?></h2>
                     <?php else:?>
                         <div class="signup-form"><!--sign up form-->
                             <div>Выбрано товаров: <?php echo Cart::countItems();?></div>
@@ -40,6 +41,7 @@
                             <form action="#" method="post">
                                 <input type="text" name="name" placeholder="Имя" minlength="1" value="<?php if (isset($_POST['name'])) echo $_POST['name']; else echo $username;?>" required/>
                                 <input type="tel" name="phone" placeholder="Телефон" minlength="8" maxlength="20" value="<?php if (isset($_POST['phone'])) echo $_POST['phone'];?>" required pattern="[0-9]+"/>
+                                <input type="email" name="email" placeholder="E-mail" value="<?php if (isset($_POST['email'])) echo $_POST['email'];?>" required/>
                                 <input type="text" name="comment" placeholder="Коментарий" value="<?php if (isset($_POST['comment'])) echo $_POST['comment'];?>"/>
                                 <input type="submit" name="submitOrder" value="Оформить" class="btn btn-default"/>
                             </form>
@@ -50,3 +52,4 @@
         </div>
     </section><!--/form-->
 <?php include ROOT.'/views/layouts/footer.php'; ?>
+

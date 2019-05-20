@@ -64,7 +64,7 @@ class Cart
         $_SESSION['products'] = $productsInCart;
     }
 
-    public static function createOrder($name,$phone,$comment)
+    public static function createOrder($name,$phone,$comment,$email)
     {
 
         if (isset($_SESSION['user'])){
@@ -78,8 +78,8 @@ class Cart
 
         $db = Db::getConnection();
 
-        $sql = "INSERT INTO product_order (id, user_name, user_phone, user_comment, user_id, date, products) VALUES"
-        . " (NULL, :name, :phone, :comment, :id, CURRENT_TIMESTAMP, :products)";
+        $sql = "INSERT INTO product_order (id, user_name, user_phone, user_comment, user_id, date, products,user_email) VALUES"
+        . " (NULL, :name, :phone, :comment, :id, CURRENT_TIMESTAMP, :products, :email)";
 
         $result = $db->prepare($sql);
 
@@ -88,6 +88,7 @@ class Cart
         $result->bindParam(':comment',$comment,PDO::PARAM_STR);
         $result->bindParam(':id',$id,PDO::PARAM_INT);
         $result->bindParam(':products',$products,PDO::PARAM_STR);
+        $result->bindParam(':email', $email, PDO::PARAM_STR_CHAR);
 
 
         $result->execute();
