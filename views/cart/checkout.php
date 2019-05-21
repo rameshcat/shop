@@ -24,9 +24,9 @@
                     <h2 class="title text-center">Оформление заказа</h2>
                 </div>
                 <div class="col-sm-4">
-                    <?php if($result == true):?>
+                    <?php if($result):?>
                         <h2>Заказ оформлен!</h2>
-                        <h2>Номер Вашего заказа <?php echo ?></h2>
+                        <h2>Номер Вашего заказа <?php echo $result?></h2>
                     <?php else:?>
                         <div class="signup-form"><!--sign up form-->
                             <div>Выбрано товаров: <?php echo Cart::countItems();?></div>

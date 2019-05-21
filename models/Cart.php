@@ -95,6 +95,9 @@ class Cart
 
         unset($_SESSION['products']);
 
-        return true;
+        $lastID = $db->lastInsertId();
+
+        return $lastID;
     }
+
 }
