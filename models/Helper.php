@@ -43,6 +43,15 @@ class Helper
             case 'adminPanel':
                 return "/admin";
                 break;
+            case 'adminOrder':
+                return "/admin/order";
+                break;
+            case 'orderDelete':
+                return "/admin/order/delete/$id";
+                break;
+            case 'orderView':
+                return "/admin/order/view/$id";
+                break;
         }
     }
     public static function imageLink($name)

@@ -32,6 +32,11 @@ return array(
     'admin/category/delete/([0-9]+)' => 'adminCategory/delete/$1',
     'admin/category' => 'adminCategory/index',
 
+    'admin/order/delete/([0-9]+)' => 'adminOrder/delete/$1',
+    'admin/order/view/([0-9]+)' => 'adminOrder/view/$1',
+    'admin/order' => 'adminOrder/index',
+
+
     'admin' => 'admin/index',
 
 
