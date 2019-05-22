@@ -1,6 +1,4 @@
 <?php
-include_once ROOT.'/models/User.php';
-include_once ROOT.'/models/Cart.php';
 
 class UserController
 {

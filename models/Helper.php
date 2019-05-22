@@ -1,4 +1,5 @@
 <?php
+
 class Helper
 {
     public static function uriLink($name, $id=null)

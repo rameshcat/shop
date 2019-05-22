@@ -1,4 +1,5 @@
 <?php
+
 class DbVersion
 {
     public static function versionCheck()

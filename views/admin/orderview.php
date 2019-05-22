@@ -27,8 +27,8 @@
             </tr>
         </table>
     </div>
-    <div class="container">
-        <table class="table-bordered table-striped table" style="width: fit-content; font-weight: normal">
+    <div class="container"">
+        <table class="table-bordered table-striped table" style="width: 100%; font-weight: normal">
             <thead>Товары в заказе</thead>
             <th>ID товара</th>
             <th>Артикул</th>
