@@ -14,9 +14,9 @@ class CatalogController
         $total = Product::getTotalProducts();
         $pagination = new Pagination($total, $page, Product::SHOW_BY_DEFAULT, 'page-');
 
-        require_once(ROOT . '/views/catalog/view.php');
+        $data = compact('categories', 'latestProducts', 'pagination');
 
-        return true;
+        return $data;
     }
 
     public function actionCategory($categoryId, $page = 1)
@@ -31,9 +31,9 @@ class CatalogController
         $total = Product::getTotalProductsInCategory($categoryId);
         $pagination = new Pagination($total, $page, Product::SHOW_BY_DEFAULT, 'page-');
 
-        require_once(ROOT . '/views/catalog/category.php');
+        $data = compact('categories','categoryProducts','pagination', 'categoryId');
 
-        return true;
+        return $data;
     }
 
 

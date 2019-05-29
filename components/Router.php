@@ -33,13 +33,15 @@ class Router
             if (preg_match("~$uriPattern~", $uri)){
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
                 $segments = explode('/', $internalRoute);
-                $controllerName = array_shift($segments).'Controller';
+                $viewController = array_shift($segments);
+                $controllerName = $viewController.'Controller';
                 $controllerName = ucfirst($controllerName);
-                $actionName = 'action'.ucfirst(array_shift($segments));
+                $viewAction = array_shift($segments);
+                $actionName = 'action'.ucfirst($viewAction);
 
+                $template=ROOT.'/views/' . $viewController .'/'. $viewAction . '.php';
 
                 $parameters = $segments;
-
 
 
                 $controllerFile = ROOT.'/controllers/'.$controllerName.'.php';
@@ -49,9 +51,13 @@ class Router
                 $controllerObject = new $controllerName;
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 
+                $view = new View();
+                $view->getView($result,$template);
+
                 if($result != null){
                     break;
                 }
+
              }
         }
 

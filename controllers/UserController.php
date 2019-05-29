@@ -36,9 +36,9 @@ class UserController
             }
 
         }
-        require_once (ROOT.'/views/user/view.php');
+        $data = compact('name','email','password','result','errors');
 
-        return true;
+        return $data;
     }
     public function actionLogin()
     {
@@ -69,10 +69,9 @@ class UserController
 
         }
 
+        $data = compact('email','password','errors');
 
-        require_once (ROOT.'/views/user/login.php');
-
-        return true;
+        return $data;
     }
     public function actionLogOut()
     {

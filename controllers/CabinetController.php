@@ -10,9 +10,9 @@ class CabinetController
 
         $userId = User::checkLoged();
 
-        require_once (ROOT.'/views/cabinet/view.php');
+        $data = compact('categories','userId');
 
-        return true;
+        return $data;
     }
     public function actionEdit()
     {
@@ -45,9 +45,9 @@ class CabinetController
             }
 
         }
-        require_once (ROOT.'/views/user/edit.php');
+        $data = compact('userId','user','name','password','errors','result');
 
-        return true;
+        return $data;
     }
 
 }

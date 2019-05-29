@@ -24,10 +24,9 @@ class CartController
             $products = Product::getProductsByIds($productsIds);
         }
 
+        $data = compact('categories','productsInCart','productsIds','products');
 
-        require_once (ROOT.'/views/cart/index.php');
-
-        return true;
+        return $data;
     }
 
     public static function actionDelete($id)
@@ -84,7 +83,7 @@ class CartController
 
         }
 
-        require_once (ROOT.'/views/cart/checkout.php');
-        return true;
+        $data = compact('categories','products','productsIds','productsInCart','phone','totalPrice', 'result','name','comment','email','errors');
+        return $data;
     }
 }
