@@ -9,8 +9,9 @@ class AdminCategoryController
 
         $categoriesList = Category::getCategoriesList();
 
-        require_once(ROOT . '/views/admin/categoryindex.php');
-        return true;
+        $data = compact('categoriesList');
+
+        return $data;
     }
 
     public function actionCreate()
@@ -22,7 +23,8 @@ class AdminCategoryController
             $name = $_POST['name'];
             $sortOrder = $_POST['sort_order'];
             $status = $_POST['status'];
-
+            $description = $_POST['description'];
+            $image = '/template/images/home/category'.$name.'.jpg';
             $errors = false;
 
             if (!isset($name) || empty($name)) {
@@ -31,13 +33,22 @@ class AdminCategoryController
 
             if ($errors == false) {
 
-                Category::createCategory($name, $sortOrder, $status);
+                $id = Category::createCategory($name, $sortOrder, $status, $description, $image);
+
+                if ($id) {
+                    if (is_uploaded_file($_FILES["image"]["tmp_name"])) {
+
+                        move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/template/images/home/category$name.jpg");
+                    }
+                };
+
 
                 header("Location: /admin/category");
             }
         }
-        require_once(ROOT . '/views/admin/categorycreate.php');
-        return true;
+        $data = compact('name','errors','id');
+
+        return $data;
     }
 
     public function actionUpdate($id)
@@ -56,8 +67,9 @@ class AdminCategoryController
 
             header("Location: /admin/category");
         }
-        require_once(ROOT . '/views/admin/categoryupdate.php');
-        return true;
+        $data = compact('name','category','id');
+
+        return $data;
     }
 
     public function actionDelete($id)
@@ -70,9 +82,9 @@ class AdminCategoryController
 
             header("Location: /admin/category");
         }
+        $data = compact('id');
 
-        require_once(ROOT . '/views/admin/categorydelete.php');
-        return true;
+        return $data;
     }
 
 }

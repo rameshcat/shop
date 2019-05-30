@@ -12,12 +12,12 @@ session_start();
 
 spl_autoload_register(function ($class) {
 
-    $file = ROOT.'/components/'.$class.'.php';
+    $file = ROOT . '/components/' . $class . '.php';
 
     if (file_exists($file)) {
         include_once $file;
     } else {
-        $file = ROOT.'/models/'.$class.'.php';
+        $file = ROOT . '/models/' . $class . '.php';
         if (file_exists($file)) {
             include_once $file;
         }

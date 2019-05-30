@@ -83,7 +83,7 @@ class CartController
 
         }
 
-        $data = compact('categories','products','productsIds','productsInCart','phone','totalPrice', 'result','name','comment','email','errors');
+        $data = compact('categories','products','username','productsIds','productsInCart','phone','totalPrice', 'result','name','comment','email','errors');
         return $data;
     }
 }

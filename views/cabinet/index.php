@@ -1,4 +1,4 @@
-<?php include ROOT.'/views/layouts/header.php'; ?>
+<?php include ROOT . '/views/layouts/header.php'; ?>
 <section>
     <div class="container">
         <div class="row">
@@ -10,7 +10,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a href="/category/<?php echo $categoryItem['id'];?>">
+                                        <a href="/category/<?php echo $categoryItem['id']; ?>">
                                             <?php echo $categoryItem['name']; ?>
                                         </a>
                                     </h4>
@@ -22,12 +22,13 @@
             </div>
             <div class="col-sm-9 padding-right">
                 <h2 class="title text-center">Личный кабинет</h2>
-                <a href="<?php echo Helper::uriLink('userDataEdit');?>" name="edit">Редактировать личные данные</a><br/>
+                <a href="<?php echo Helper::uriLink('userDataEdit'); ?>" name="edit">Редактировать личные
+                    данные</a><br/>
                 <a href="#" name="history">История заказов</a><br/>
-                <?php if ((isset($_SESSION['role'])) && ($_SESSION['role'] == 'admin')):?>
-                <a href="<?php echo Helper::uriLink('adminPanel');?>" name="edit">Панель администратора</a><br/>
-                <?php endif;?>
+                <?php if ((isset($_SESSION['role'])) && ($_SESSION['role'] == 'admin')): ?>
+                    <a href="<?php echo Helper::uriLink('adminPanel'); ?>" name="edit">Панель администратора</a><br/>
+                <?php endif; ?>
             </div>
         </div>
 </section>
-<?php include ROOT.'/views/layouts/footer.php'; ?>
+<?php include ROOT . '/views/layouts/footer.php'; ?>

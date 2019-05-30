@@ -9,7 +9,7 @@
 class View
 {
     public function getView($data,$template){
-        extract($data);
+        if (is_array($data)) extract($data);
         require ($template);
     }
 }

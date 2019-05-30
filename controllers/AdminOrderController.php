@@ -8,25 +8,24 @@ class AdminOrderController
 
         $orderList = (Order::getAllOrders());
 
-        require_once (ROOT.'/views/admin/orderindex.php');
+        $data = compact('orderList');
 
-        return true;
+        return $data;
 
     }
+
     public static function actionDelete($id)
     {
         User::checkAdmin();
 
-        if (isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
 
             Order::deleteOrderById($id);
 
             header("Location: /admin/order");
         }
 
-        require_once (ROOT.'/views/admin/orderdelete.php');
-
-        return true;
+        return $id;
     }
 
 
@@ -36,15 +35,15 @@ class AdminOrderController
 
         $order = Order::getOrderById($id);
 
-        $products = json_decode($order['products'],true);
+        $products = json_decode($order['products'], true);
 
         $productsIds = array_keys($products);
 
         $productList = Product::getProductsByIds($productsIds);
 
-        require_once (ROOT.'/views/admin/orderview.php');
+        $data = compact('order', 'productsIds', 'products', 'productList', 'id');
 
-        return true;
+        return $data;
     }
 
 }

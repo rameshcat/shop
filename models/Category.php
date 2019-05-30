@@ -25,18 +25,20 @@ class Category
 
         return $categoryList;
     }
-    public static function createCategory($name, $sortOrder, $status)
+    public static function createCategory($name, $sortOrder, $status, $description, $image)
     {
 
         $db = Db::getConnection();
 
-        $sql = 'INSERT INTO category (name, sort_order, status) '
-            . 'VALUES (:name, :sort_order, :status)';
+        $sql = 'INSERT INTO category (name, sort_order, status, category_description, category_image) '
+            . 'VALUES (:name, :sort_order, :status, :category_description, :image)';
 
         $result = $db->prepare($sql);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
         $result->bindParam(':sort_order', $sortOrder, PDO::PARAM_INT);
         $result->bindParam(':status', $status, PDO::PARAM_INT);
+        $result->bindParam(':category_description', $description, PDO::PARAM_STR_CHAR);
+        $result->bindParam(':image', $image, PDO::PARAM_STR_CHAR);
         return $result->execute();
     }
     public static function updateCategoryById($id, $name, $sortOrder, $status)

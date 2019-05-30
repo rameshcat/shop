@@ -8,9 +8,9 @@ class AdminProductController
 
         $productsList = Product::getAllProducts();
 
-        require_once (ROOT.'/views/admin/productindex.php');
+        $data = compact('productsList');
 
-        return true;
+        return $data;
 
     }
     public static function actionDelete($id)
@@ -24,9 +24,7 @@ class AdminProductController
             header("Location: /admin/product");
         }
 
-        require_once (ROOT.'/views/admin/productdelete.php');
-
-        return true;
+        return $id;
     }
     public static function actionCreate()
     {
@@ -60,7 +58,7 @@ class AdminProductController
 
                     if (is_uploaded_file($_FILES["image"]["tmp_name"])) {
 
-                        move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/upload/images/products/$id.jpg");
+                        move_uploaded_file($_FILES["image"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/upload/images/products/$id.png");
                     }
                 };
 
@@ -68,9 +66,9 @@ class AdminProductController
             }
         }
 
-        require_once (ROOT.'/views/admin/productcreate.php');
+        $data = compact('errors','options','id','categoryList');
 
-        return true;
+        return $data;
 
     }
     public function actionUpdate($id)
@@ -106,8 +104,9 @@ class AdminProductController
             header("Location: /admin/product");
         }
 
-        require_once(ROOT . '/views/admin/productupdate.php');
-        return true;
+        $data = compact('id','options','product','categoriesList');
+
+        return $data;
     }
 
 }

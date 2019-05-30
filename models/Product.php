@@ -15,8 +15,6 @@ class Product
 
         $result = $db->query('SELECT id, name, price, is_new FROM product WHERE status = "1" ORDER BY id DESC LIMIT '.$count);
 
-        //$result = $db->query('SELECT * FROM product JOIN category ON category_id = category.id ORDER BY product.id DESC LIMIT '.$count);
-
 
         $i = 0;
         while ($row = $result->fetch()){
