@@ -1,5 +1,3 @@
-<?php include ROOT . '/views/layouts/headerAdmin.php'; ?>
-
 <section>
     <div class="container">
         <h4>Просмотр заказа № <?php echo $id; ?></h4>
@@ -47,4 +45,3 @@
         </table>
     </div>
 </section>
-<?php include ROOT . '/views/layouts/footer.php'; ?>

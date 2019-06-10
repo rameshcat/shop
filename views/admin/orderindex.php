@@ -1,5 +1,3 @@
-<?php include ROOT . '/views/layouts/headerAdmin.php'; ?>
-
 <section>
     <div class="container">
         <h4>Список заказов</h4>
@@ -30,4 +28,3 @@
         </table>
     </div>
 </section>
-<?php include ROOT . '/views/layouts/footer.php'; ?>

@@ -1,5 +1,3 @@
-<?php include ROOT . '/views/layouts/headerAdmin.php'; ?>
-
 <section>
     <div class="container">
         <a href="<?php echo Helper::uriLink('productAdd'); ?>" class="btn btn-default back"><i class="fa fa-plus"></i>
@@ -30,4 +28,3 @@
         </table>
     </div>
 </section>
-<?php include ROOT . '/views/layouts/footer.php'; ?>

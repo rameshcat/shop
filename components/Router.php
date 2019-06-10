@@ -42,7 +42,12 @@ class Router
                 if (strpos($viewController,'admin')!==false){
                     $viewController=strtolower(str_replace('admin','',$viewController));
                     $template = ROOT . '/views/admin/' . $viewController . $viewAction . '.php';
-                }else $template = ROOT . '/views/' . $viewController . '/' . $viewAction . '.php';
+                    $view = new AdminView();
+                }else {
+                    $template = ROOT . '/views/' . $viewController . '/' . $viewAction . '.php';
+                    $view = new SiteView();
+                }
+
 
                 $parameters = $segments;
 
@@ -54,7 +59,7 @@ class Router
                 $controllerObject = new $controllerName;
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 
-                $view = new View();
+
                 $view->getView($result, $template);
 
                 if ($result !== null) {

@@ -1,4 +1,3 @@
-<?php include ROOT . '/views/layouts/header.php'; ?>
 <section>
     <div class="container">
         <div class="row">
@@ -12,9 +11,10 @@
                                     <h4 class="panel-title">
                                         <a href="<?php echo Helper::uriLink('category', $categoryItem['id']); ?>"
                                             <?php if ($categoryItem['id'] == $categoryId): ?>
-                                           class="active"
-                                        <?php endif; ?>
-                                        <?php echo $categoryItem['name']; ?>
+                                                class="active"
+                                            <?php endif; ?>
+                                        >
+                                            <?php echo $categoryItem['name']; ?>
                                         </a>
                                     </h4>
                                 </div>
@@ -62,4 +62,3 @@
             </div>
         </div>
 </section>
-<?php include ROOT . '/views/layouts/footer.php'; ?>

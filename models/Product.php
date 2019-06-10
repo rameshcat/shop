@@ -1,6 +1,6 @@
 <?php
 
-class Product
+class Product extends BaseModel
 {
 
     const SHOW_BY_DEFAULT = 6;
@@ -9,23 +9,23 @@ class Product
     {
         $count = intval($count);
 
-        $db = Db::getConnection();
+        //$db = self::getConnection();
 
-        $productList = array();
+        //$productList = array();
 
-        $result = $db->query('SELECT id, name, price, is_new FROM product WHERE status = "1" ORDER BY id DESC LIMIT '.$count);
+        //$result = $db->query('SELECT id, name, price, is_new FROM product WHERE status = "1" ORDER BY id DESC LIMIT ' . $count);
 
 
-        $i = 0;
-        while ($row = $result->fetch()){
+        /*$i = 0;
+        while ($row = $result->fetch()) {
             $productList[$i]['id'] = $row['id'];
             $productList[$i]['name'] = $row['name'];
             $productList[$i]['price'] = $row['price'];
             $productList[$i]['is_new'] = $row['is_new'];
             $i++;
-        };
+        };*/
 
-        return $productList;
+        return self::runSelect('SELECT id, name, price, is_new FROM product WHERE status = "1" ORDER BY id DESC LIMIT ' . $count);
     }
 
     public static function getProductsListByCategory($categoryId = false, $page = 1)
@@ -33,17 +33,21 @@ class Product
 
         if ($categoryId) {
 
-            $db = Db::getConnection();
+            //$db = self::getConnection();
 
             $page = intval($page);
 
-            $offset = ($page-1) * self::SHOW_BY_DEFAULT;
+            $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
 
-            $products = array();
+            //$products = array();
 
-            $result = $db->query("SELECT product.id as id, product.name as name, price, is_new, category.name as categoryname, category_description, category_image FROM product INNER JOIN category ON product.category_id = category.id WHERE product.status = '1' AND category_id = '$categoryId' ORDER BY id DESC LIMIT ".self::SHOW_BY_DEFAULT." OFFSET $offset");
+            $sql = "SELECT product.id as id, product.name as name, price, is_new, category.name
+                                            as categoryname, category_description, category_image FROM product INNER JOIN 
+                                            category ON product.category_id = category.id WHERE product.status = '1' 
+                                            AND category_id = '$categoryId' ORDER BY id DESC LIMIT " .
+                                            self::SHOW_BY_DEFAULT . " OFFSET $offset";
 
-            $i = 0;
+           /* $i = 0;
             while ($row = $result->fetch()) {
                 $products[$i]['id'] = $row['id'];
                 $products[$i]['name'] = $row['name'];
@@ -54,43 +58,47 @@ class Product
 
                 $i++;
             };
-            return $products;
+            return $products;*/
+            return self::runSelect($sql);
         }
     }
+
     public static function getProductsList($page = 1)
     {
 
-            $db = Db::getConnection();
+        //$db = self::getConnection();
 
-            $page = intval($page);
+        $page = intval($page);
 
-            $offset = ($page-1) * self::SHOW_BY_DEFAULT;
+        $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
 
-            $products = array();
+        $sql = "SELECT code, id, name, price, is_new FROM product WHERE status = '1' ORDER BY id DESC LIMIT " . self::SHOW_BY_DEFAULT . " OFFSET $offset";
 
-            $result = $db->query("SELECT code, id, name, price, is_new FROM product WHERE status = '1' ORDER BY id DESC LIMIT ".self::SHOW_BY_DEFAULT." OFFSET $offset");
+        //$result = $db->query("SELECT code, id, name, price, is_new FROM product WHERE status = '1' ORDER BY id DESC LIMIT " . self::SHOW_BY_DEFAULT . " OFFSET $offset");
 
 
-            $i = 0;
-            while ($row = $result->fetch()) {
-                $products[$i]['code'] = $row['code'];
-                $products[$i]['id'] = $row['id'];
-                $products[$i]['name'] = $row['name'];
-                $products[$i]['price'] = $row['price'];
-                $products[$i]['is_new'] = $row['is_new'];
-                $i++;
-            };
-            return $products;
+        /*   $i = 0;
+           while ($row = $result->fetch()) {
+               $products[$i]['code'] = $row['code'];
+               $products[$i]['id'] = $row['id'];
+               $products[$i]['name'] = $row['name'];
+               $products[$i]['price'] = $row['price'];
+               $products[$i]['is_new'] = $row['is_new'];
+               $i++;
+           };*/
+        //return $result->fetchAll();
+        return self::runSelect($sql);
 
     }
+
     public static function getAllProducts()
     {
 
-        $db = Db::getConnection();
+   /*     $db = self::getConnection();
 
         $products = array();
 
-        $result = $db->query("SELECT * FROM product ORDER BY id");
+        $result = $db->query("SELECT code, id, name, price, is_new FROM product ORDER BY id");
 
 
         $i = 0;
@@ -102,16 +110,18 @@ class Product
             $products[$i]['is_new'] = $row['is_new'];
             $i++;
         };
-        return $products;
+        return $result->fetchAll();*/
+        return self::runSelect('SELECT code, id, name, price, is_new FROM product ORDER BY id');
 
     }
+
     public static function getProductById($id)
     {
         $id = intval($id);
 
         if ($id) {
 
-            $db = Db::getConnection();
+            $db = self::getConnection();
 
             $result = $db->query("SELECT * FROM product WHERE id=" . $id);
         }
@@ -124,7 +134,7 @@ class Product
 
         if ($id) {
 
-            $db = Db::getConnection();
+            $db = self::getConnection();
 
             $result = $db->query("SELECT count(*) FROM product WHERE category_id=" . $id);
 
@@ -135,10 +145,11 @@ class Product
 
 
     }
+
     public static function getTotalProducts()
     {
 
-        $db = Db::getConnection();
+        $db = self::getConnection();
 
         $result = $db->query("SELECT count(*) FROM product");
 
@@ -153,44 +164,47 @@ class Product
         $products = [];
         $productsIds = implode(',', $productsIds);
 
-        $db = Db::getConnection();
+        $db = self::getConnection();
         $sql = "SELECT * FROM product WHERE id IN ($productsIds)";
 
-        $result = $db -> query($sql);
+        $result = $db->query($sql);
 
         $i = 0;
 
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)){
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $products[$i]['id'] = $row['id'];
             $products[$i]['code'] = $row['code'];
             $products[$i]['name'] = $row['name'];
             $products[$i]['price'] = $row['price'];
             $i++;
-        } return $products;
+        }
+        return $products;
 
 
     }
+
     public static function deleteProductById($id)
     {
         $id = intval($id);
 
         if ($id) {
-            $db = Db::getConnection();
+            $db = self::getConnection();
 
             $sql = 'DELETE FROM product WHERE id = :id';
 
             $result = $db->prepare($sql);
 
-            $result->bindParam(':id',$id,PDO::PARAM_INT);
+            $result->bindParam(':id', $id, PDO::PARAM_INT);
             return $result->execute();
         }
         return false;
 
 
     }
+
     public static function createProduct($options)
     {
-        $db = Db::getConnection();
+        $db = self::getConnection();
 
         $sql = 'INSERT INTO product '
             . '(name, code, price, category_id, brand, availability,'
@@ -217,10 +231,11 @@ class Product
 
         return 0;
     }
+
     public static function updateProductById($id, $options)
     {
 
-        $db = Db::getConnection();
+        $db = self::getConnection();
 
         $sql = "UPDATE product
             SET 
@@ -250,6 +265,7 @@ class Product
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
         return $result->execute();
     }
+
     public static function getImage($id)
     {
 
@@ -258,7 +274,7 @@ class Product
         $path = '/upload/images/products/';
 
         $pathToProductImage = $path . $id . '.jpg';
-        if (file_exists($_SERVER['DOCUMENT_ROOT'].$pathToProductImage)) {
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $pathToProductImage)) {
 
             return $pathToProductImage;
         }
