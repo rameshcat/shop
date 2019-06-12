@@ -9,185 +9,87 @@ class Product extends BaseModel
     {
         $count = intval($count);
 
-        //$db = self::getConnection();
-
-        //$productList = array();
-
-        //$result = $db->query('SELECT id, name, price, is_new FROM product WHERE status = "1" ORDER BY id DESC LIMIT ' . $count);
-
-
-        /*$i = 0;
-        while ($row = $result->fetch()) {
-            $productList[$i]['id'] = $row['id'];
-            $productList[$i]['name'] = $row['name'];
-            $productList[$i]['price'] = $row['price'];
-            $productList[$i]['is_new'] = $row['is_new'];
-            $i++;
-        };*/
-
         return self::runSelect('SELECT id, name, price, is_new FROM product WHERE status = "1" ORDER BY id DESC LIMIT ' . $count);
     }
 
     public static function getProductsListByCategory($categoryId = false, $page = 1)
     {
-
         if ($categoryId) {
-
-            //$db = self::getConnection();
 
             $page = intval($page);
 
             $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
 
-            //$products = array();
-
             $sql = "SELECT product.id as id, product.name as name, price, is_new, category.name
                                             as categoryname, category_description, category_image FROM product INNER JOIN 
                                             category ON product.category_id = category.id WHERE product.status = '1' 
                                             AND category_id = '$categoryId' ORDER BY id DESC LIMIT " .
-                                            self::SHOW_BY_DEFAULT . " OFFSET $offset";
-
-           /* $i = 0;
-            while ($row = $result->fetch()) {
-                $products[$i]['id'] = $row['id'];
-                $products[$i]['name'] = $row['name'];
-                $products[$i]['price'] = $row['price'];
-                $products[$i]['is_new'] = $row['is_new'];
-                $products[$i]['category_description'] = $row['category_description'];
-                $products[$i]['category_image'] = $row['category_image'];
-
-                $i++;
-            };
-            return $products;*/
+                self::SHOW_BY_DEFAULT . " OFFSET $offset";
             return self::runSelect($sql);
         }
     }
 
     public static function getProductsList($page = 1)
     {
-
-        //$db = self::getConnection();
-
         $page = intval($page);
 
         $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
 
         $sql = "SELECT code, id, name, price, is_new FROM product WHERE status = '1' ORDER BY id DESC LIMIT " . self::SHOW_BY_DEFAULT . " OFFSET $offset";
 
-        //$result = $db->query("SELECT code, id, name, price, is_new FROM product WHERE status = '1' ORDER BY id DESC LIMIT " . self::SHOW_BY_DEFAULT . " OFFSET $offset");
-
-
-        /*   $i = 0;
-           while ($row = $result->fetch()) {
-               $products[$i]['code'] = $row['code'];
-               $products[$i]['id'] = $row['id'];
-               $products[$i]['name'] = $row['name'];
-               $products[$i]['price'] = $row['price'];
-               $products[$i]['is_new'] = $row['is_new'];
-               $i++;
-           };*/
-        //return $result->fetchAll();
         return self::runSelect($sql);
-
     }
 
     public static function getAllProducts()
     {
-
-   /*     $db = self::getConnection();
-
-        $products = array();
-
-        $result = $db->query("SELECT code, id, name, price, is_new FROM product ORDER BY id");
-
-
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $products[$i]['code'] = $row['code'];
-            $products[$i]['id'] = $row['id'];
-            $products[$i]['name'] = $row['name'];
-            $products[$i]['price'] = $row['price'];
-            $products[$i]['is_new'] = $row['is_new'];
-            $i++;
-        };
-        return $result->fetchAll();*/
         return self::runSelect('SELECT code, id, name, price, is_new FROM product ORDER BY id');
-
     }
 
     public static function getProductById($id)
     {
         $id = intval($id);
 
-        if ($id) {
+        $product = self::runSelect("SELECT * FROM product WHERE id=" . $id);
 
-            $db = self::getConnection();
-
-            $result = $db->query("SELECT * FROM product WHERE id=" . $id);
-        }
-        return $result->fetch(PDO::FETCH_ASSOC);
+        return $product[0];
     }
 
     public static function getTotalProductsInCategory($id)
     {
         $id = intval($id);
 
-        if ($id) {
+        $productsInCategory = self::runSelect("SELECT count(*) FROM product WHERE category_id=" . $id, PDO::FETCH_NUM);
 
-            $db = self::getConnection();
-
-            $result = $db->query("SELECT count(*) FROM product WHERE category_id=" . $id);
-
-            $result = $result->fetch();
-
-        }
-        return $result[0];
-
-
+        return $productsInCategory[0][0];
     }
 
     public static function getTotalProducts()
     {
+        $products = self::runSelect("SELECT count(*) FROM product", PDO::FETCH_NUM);
 
-        $db = self::getConnection();
-
-        $result = $db->query("SELECT count(*) FROM product");
-
-        $result = $result->fetch();
-
-        return $result[0];
-
+        return $products[0][0];
     }
 
     public static function getProductsByIds($productsIds)
     {
-        $products = [];
         $productsIds = implode(',', $productsIds);
 
-        $db = self::getConnection();
         $sql = "SELECT * FROM product WHERE id IN ($productsIds)";
 
-        $result = $db->query($sql);
-
-        $i = 0;
-
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $products[$i]['id'] = $row['id'];
-            $products[$i]['code'] = $row['code'];
-            $products[$i]['name'] = $row['name'];
-            $products[$i]['price'] = $row['price'];
-            $i++;
-        }
-        return $products;
-
-
+        return self::runSelect($sql);
     }
 
     public static function deleteProductById($id)
     {
         $id = intval($id);
 
-        if ($id) {
+        $sql = 'DELETE FROM product WHERE id = :id';
+
+        $params = [
+          'id' => $id
+        ];
+
+       /* if ($id) {
             $db = self::getConnection();
 
             $sql = 'DELETE FROM product WHERE id = :id';
@@ -197,9 +99,8 @@ class Product extends BaseModel
             $result->bindParam(':id', $id, PDO::PARAM_INT);
             return $result->execute();
         }
-        return false;
-
-
+        return false;*/
+       return self::runExecute($sql,$params);
     }
 
     public static function createProduct($options)
@@ -228,7 +129,6 @@ class Product extends BaseModel
 
             return $db->lastInsertId();
         }
-
         return 0;
     }
 
@@ -268,7 +168,6 @@ class Product extends BaseModel
 
     public static function getImage($id)
     {
-
         $noImage = 'no-image.jpg';
 
         $path = '/upload/images/products/';

@@ -23,11 +23,28 @@ class BaseModel
         }
         try {
             $db = self::getConnection();
-            $products = array();
             $result = $db->query($sql);
             return $result->fetchAll($fetch);
         } catch (\Exception $e){
             return[];
         }
     }
+
+    static public function runExecute($sql, $params){
+        if (!$sql){
+            return[];
+        }
+        try {
+            $db = self::getConnection();
+            $result = $db->prepare($sql);
+            foreach ($params as $parameter => &$variable){
+                $result->bindParam(":$parameter",$variable);
+            }
+            return $result->execute();
+        } catch (\Exception $e){
+            return[];
+        }
+    }
+
+
 }
