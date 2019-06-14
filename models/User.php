@@ -1,23 +1,20 @@
 <?php
 
-class User
+class User extends BaseModel
 {
 
     public static function registry($name,$email,$password)
     {
-        $db = Db::getConnection();
-
         $password = password_hash($password, PASSWORD_BCRYPT);
 
         $sql = 'INSERT INTO user (name, email, password) VALUES (:name, :email, :password)';
 
-        $result = $db->prepare($sql);
-        $result->bindParam(':name',$name, PDO::PARAM_STR);
-        $result->bindParam(':email',$email, PDO::PARAM_STR);
-        $result->bindParam(':password',$password, PDO::PARAM_STR);
-
-
-        return $result->execute();
+        $params = [
+            'name'      => $name,
+            'email'     => $email,
+            'password'  => $password
+        ];
+        return self::runExecute($sql,$params);
     }
 
     public static function checkName($name)
@@ -50,6 +47,7 @@ class User
             return true;
         } return false;
     }
+
     public static function checkEmailExist($email)
     {
 
@@ -66,6 +64,7 @@ class User
         } return true;
 
     }
+
     public static function checkUserData($email,$password)
     {
 
@@ -83,6 +82,7 @@ class User
         }
         return false;
     }
+
     public static function login($userId,$role)
     {
 
@@ -90,6 +90,7 @@ class User
         $_SESSION['role'] = $role;
 
     }
+
     public static function checkLoged()
     {
 
@@ -98,6 +99,7 @@ class User
         } else header("Location: /user/login");
 
     }
+
     public static function checkAdmin()
     {
         $userId = self::checkLoged();

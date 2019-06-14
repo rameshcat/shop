@@ -23,7 +23,7 @@
                         <td><?php echo $category['status']; ?></td>
                         <td><a href="<?php echo Helper::uriLink('categoryUpdate', $category['id']); ?>"
                                title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td><a href="<?php echo Helper::uriLink('categoryDelete', $category['id']); ?>?>"
+                        <td><a href="<?php echo Helper::uriLink('categoryDelete', $category['id']); ?>"
                                title="Удалить"><i class="fa fa-times"></i></a></td>
                     </tr>
                 <?php endforeach; ?>

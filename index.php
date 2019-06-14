@@ -22,6 +22,11 @@ spl_autoload_register(function ($class) {
             include_once $file;
             return;
         }
+        $file = ROOT . '/controllers/' . $class . '.php';
+        if (file_exists($file)) {
+            include_once $file;
+            return;
+        }
         $file = ROOT . '/view/' . $class . '.php';
         if (file_exists($file)) {
             include_once $file;

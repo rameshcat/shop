@@ -1,39 +1,29 @@
 <?php
 
-class AdminOrderController
+class AdminOrderController extends BaseAdminController
 {
     public static function actionIndex()
     {
-        User::checkAdmin();
-
-        $orderList = (Order::getAllOrders());
-
-        $data = compact('orderList');
-
+        $data['orderList'] = Order::getAllOrders();
         return $data;
-
     }
 
     public static function actionDelete($id)
     {
-        User::checkAdmin();
-
         if (isset($_POST['submit'])) {
 
             Order::deleteOrderById($id);
 
             header("Location: /admin/order");
         }
-
         return $id;
     }
 
 
     public static function actionView($id)
     {
-        User::checkAdmin();
-
         $order = Order::getOrderById($id);
+        $order = $order[0];
 
         $products = json_decode($order['products'], true);
 
@@ -41,7 +31,7 @@ class AdminOrderController
 
         $productList = Product::getProductsByIds($productsIds);
 
-        $data = compact('order', 'productsIds', 'products', 'productList', 'id');
+        $data = compact('order', 'productList','products', 'id');
 
         return $data;
     }

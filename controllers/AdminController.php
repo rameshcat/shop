@@ -1,14 +1,10 @@
 <?php
 
-class AdminController
+class AdminController extends BaseAdminController
 {
     public static function actionIndex()
     {
-        User::checkAdmin();
         DbVersion::versionCheck();
-
         return true;
-
     }
-
 }

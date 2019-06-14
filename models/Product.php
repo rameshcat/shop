@@ -86,27 +86,14 @@ class Product extends BaseModel
         $sql = 'DELETE FROM product WHERE id = :id';
 
         $params = [
-          'id' => $id
+            'id' => $id
         ];
 
-       /* if ($id) {
-            $db = self::getConnection();
-
-            $sql = 'DELETE FROM product WHERE id = :id';
-
-            $result = $db->prepare($sql);
-
-            $result->bindParam(':id', $id, PDO::PARAM_INT);
-            return $result->execute();
-        }
-        return false;*/
-       return self::runExecute($sql,$params);
+        return self::runExecute($sql, $params);
     }
 
     public static function createProduct($options)
     {
-        $db = self::getConnection();
-
         $sql = 'INSERT INTO product '
             . '(name, code, price, category_id, brand, availability,'
             . 'description, is_new, is_recommended, status)'
@@ -114,29 +101,24 @@ class Product extends BaseModel
             . '(:name, :code, :price, :category_id, :brand, :availability,'
             . ':description, :is_new, :is_recommended, :status)';
 
-        $result = $db->prepare($sql);
-        $result->bindParam(':name', $options['name'], PDO::PARAM_STR);
-        $result->bindParam(':code', $options['code'], PDO::PARAM_STR);
-        $result->bindParam(':price', $options['price'], PDO::PARAM_STR);
-        $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
-        $result->bindParam(':brand', $options['brand'], PDO::PARAM_STR);
-        $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
-        $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
-        $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
-        $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
-        $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
-        if ($result->execute()) {
+        $params = [
+            'name'              => $options['name'],
+            'code'              => $options['code'],
+            'price'             => $options['price'],
+            'category_id'       => $options['category_id'],
+            'brand'             => $options['brand'],
+            'availability'      => $options['availability'],
+            'description'       => $options['description'],
+            'is_new'            => $options['is_new'],
+            'is_recommended'    => $options['is_recommended'],
+            'status'            => $options['status'],
+        ];
 
-            return $db->lastInsertId();
-        }
-        return 0;
+        return self::runExecute($sql,$params);
     }
 
     public static function updateProductById($id, $options)
     {
-
-        $db = self::getConnection();
-
         $sql = "UPDATE product
             SET 
                 name = :name, 
@@ -151,19 +133,21 @@ class Product extends BaseModel
                 status = :status
             WHERE id = :id";
 
-        $result = $db->prepare($sql);
-        $result->bindParam(':id', $id, PDO::PARAM_INT);
-        $result->bindParam(':name', $options['name'], PDO::PARAM_STR);
-        $result->bindParam(':code', $options['code'], PDO::PARAM_STR);
-        $result->bindParam(':price', $options['price'], PDO::PARAM_STR);
-        $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
-        $result->bindParam(':brand', $options['brand'], PDO::PARAM_STR);
-        $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
-        $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
-        $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
-        $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
-        $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
-        return $result->execute();
+        $params = [
+            'id'                => $id,
+            'name'              => $options['name'],
+            'code'              => $options['code'],
+            'price'             => $options['price'],
+            'category_id'       => $options['category_id'],
+            'brand'             => $options['brand'],
+            'availability'      => $options['availability'],
+            'description'       => $options['description'],
+            'is_new'            => $options['is_new'],
+            'is_recommended'    => $options['is_recommended'],
+            'status'            => $options['status'],
+        ];
+
+       return self::runExecute($sql,$params);
     }
 
     public static function getImage($id)

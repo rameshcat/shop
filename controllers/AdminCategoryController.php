@@ -1,12 +1,10 @@
 <?php
 
-class AdminCategoryController
+class AdminCategoryController extends BaseAdminController
 {
 
     public function actionIndex()
     {
-        User::checkAdmin();
-
         $categoriesList = Category::getCategoriesList();
 
         $data = compact('categoriesList');
@@ -16,8 +14,6 @@ class AdminCategoryController
 
     public function actionCreate()
     {
-        User::checkAdmin();
-
         if (isset($_POST['submit'])) {
 
             $name = $_POST['name'];
@@ -53,8 +49,6 @@ class AdminCategoryController
 
     public function actionUpdate($id)
     {
-        User::checkAdmin();
-
         $category = Category::getCategoryById($id);
 
         if (isset($_POST['submit'])) {
@@ -67,15 +61,13 @@ class AdminCategoryController
 
             header("Location: /admin/category");
         }
-        $data = compact('name','category','id');
+        $data = compact('category');
 
         return $data;
     }
 
     public function actionDelete($id)
     {
-        User::checkAdmin();
-
         if (isset($_POST['submit'])) {
 
             Category::deleteCategoryById($id);
@@ -86,5 +78,4 @@ class AdminCategoryController
 
         return $data;
     }
-
 }

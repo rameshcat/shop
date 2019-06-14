@@ -1,11 +1,9 @@
 <?php
 
-class AdminProductController
+class AdminProductController extends BaseAdminController
 {
     public static function actionIndex()
     {
-        User::checkAdmin();
-
         $productsList = Product::getAllProducts();
 
         $data = compact('productsList');
@@ -15,8 +13,6 @@ class AdminProductController
     }
     public static function actionDelete($id)
     {
-        User::checkAdmin();
-
         if (isset($_POST['submit'])){
 
             Product::deleteProductById($id);
@@ -28,8 +24,6 @@ class AdminProductController
     }
     public static function actionCreate()
     {
-        User::checkAdmin();
-
         $categoryList = Category::getCategoriesList();
 
         if (isset($_POST['submit'])) {
@@ -73,9 +67,6 @@ class AdminProductController
     }
     public function actionUpdate($id)
     {
-
-        User::checkAdmin();
-
         $categoriesList = Category::getCategoriesList();
 
         $product = Product::getProductById($id);
@@ -108,5 +99,4 @@ class AdminProductController
 
         return $data;
     }
-
 }

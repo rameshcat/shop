@@ -36,7 +36,7 @@
                             <p>Изображение товара</p>
                             <input type="file" name="image" placeholder="" value="">
                             <p>Детальное описание</p>
-                            <textarea name="description"></textarea>
+                            <textarea name="description" required></textarea>
                             <br/><br/>
                             <p>Наличие на складе</p>
                             <select name="availability">

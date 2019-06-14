@@ -15,9 +15,9 @@
             <?php foreach ($orderList as $order): ?>
                 <tr>
                     <td><?php echo $order['id']; ?></td>
-                    <td><?php echo $order['name']; ?></td>
-                    <td><?php echo $order['phone']; ?></td>
-                    <td><?php echo $order['comment']; ?></td>
+                    <td><?php echo $order['user_name']; ?></td>
+                    <td><?php echo $order['user_phone']; ?></td>
+                    <td><?php echo $order['user_comment']; ?></td>
                     <td><?php echo $order['date']; ?></td>
                     <td><a href="<?php echo Helper::uriLink('orderView', $order['id']); ?>" title="Редактировать"><i
                                     class="fa fa-pencil-square-o"></i></a></td>
